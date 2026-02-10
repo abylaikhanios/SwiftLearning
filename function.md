@@ -1,6 +1,3 @@
-# SwiftLearning
-I learn to become iOS Developer
-
 🛠 Задача: «Система заправки»
 Представь, что ты пишешь софт для умной колонки на заправке.
 
@@ -19,14 +16,14 @@ I learn to become iOS Developer
 Функция должна отдавать итоговую сумму.
 Проверка: Вызови свою функцию для машины: бак 60 литров, в нем сейчас 20 литров, цена за литр 250, скидочная карта есть. Результат выведи на экран.
 
-let carBrand:String = ("Lexus")
-let carTank: Int = 60
-var carFuel: Int = 0
-var card: Bool = true
-let skidka: Int = 500
-let CenaZaLitr:Int = 250
+    let carBrand:String = ("Lexus")
+    let carTank: Int = 60
+    var carFuel: Int = 0
+    var card: Bool = true
+    let skidka: Int = 500
+    let CenaZaLitr:Int = 250
 
-func zapravka (kakoiBak: Int, skokaLitrov:Int, cenalitra: Int, kartaEst: Bool, bonus: Int, skidkasum: Int) {
+    func zapravka (kakoiBak: Int, skokaLitrov:Int, cenalitra: Int, kartaEst: Bool, bonus: Int, skidkasum: Int) {
     
     var Zalivaemlitrov = kakoiBak - skokaLitrov
     print ("залито \(Zalivaemlitrov) литров")
@@ -42,7 +39,7 @@ func zapravka (kakoiBak: Int, skokaLitrov:Int, cenalitra: Int, kartaEst: Bool, b
         print("Скидочная карта активна на \(skidkasum) тенге!")
     } else {
         print ("Cкидка неактивна!")
-}
+    }
 
     print("---------------------------------------------------------")
    
@@ -55,6 +52,6 @@ func zapravka (kakoiBak: Int, skokaLitrov:Int, cenalitra: Int, kartaEst: Bool, b
     } else {
         print ("к оплате \(finalpricenocard)")
     }
-}
-
-zapravka(kakoiBak: carTank, skokaLitrov: carFuel, cenalitra: CenaZaLitr, kartaEst: card, bonus: skidka, skidkasum: skidka)
+    }
+ 
+    zapravka(kakoiBak: carTank, skokaLitrov: carFuel, cenalitra: CenaZaLitr, kartaEst: card, bonus: skidka, skidkasum: skidka)
