@@ -1,6 +1,6 @@
 изучил способы как выбить данные из опционала. Пока только три способа
 
-var fathername:String? = nil
+var fathername:String? = Kayrat
 
 // optional binding
 
