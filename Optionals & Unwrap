@@ -1,0 +1,19 @@
+изучил способы как выбить данные из опционала. Пока только три способа
+
+var fathername:String? = nil
+
+// optional binding
+
+if let name = fathername {
+    print ("optional binded \(name)")
+} else {
+    print ("nil mazafaka")
+}
+
+//forced unwrapping
+
+print ("forced unwrapped \(fathername!)")
+
+// nil coaesing
+
+print (fathername ?? "mazafaka")
