@@ -1,0 +1,58 @@
+Задача: «VIP-терминал аэропорта»
+Описание:
+Тебе нужно написать программу, которая имитирует работу кассы в аэропорту. Программа должна уметь рассчитывать цену билета с учетом скидок и налогов, а также проверять, хватает ли у клиента денег на покупку.
+
+Технические условия:
+Создай модель рейса: каждый рейс должен иметь название города, цену и отметку, международный он или нет.
+Создай модель терминала:
+В терминале должен быть список имен VIP-клиентов.
+В терминале должен быть метод для бронирования билета.
+Логика бронирования:
+Если пассажир — VIP, сделай ему скидку 50 000.
+Если рейс международный, добавь к цене сбор 15 000.
+Сравни итоговую цену с деньгами пассажира.
+Если денег хватает — выведи сообщение об успехе и верни «да».
+Если не хватает — выведи сообщение об ошибке, рассчитай сумму недостачи и верни «нет».
+Проверка: создай список из нескольких рейсов и в цикле попробуй купить их все для одного пассажира, используя метод терминала.
+
+struct flight {
+    let destination: String
+    let price: Int
+    let isInternational: Bool
+}
+var flights = [
+    flight(destination:"Madrido", price: 150_000, isInternational: true),
+    flight(destination: "Tokyo", price: 250_000, isInternational: true),
+    flight(destination: "Almaty", price: 60_000, isInternational: false)
+]
+
+struct airportTerminal {
+    let terminalName: String
+    var vipCustomers:[String]
+    
+    func bookTicket(flight:flight, passangerName:String, money:Int)->(Bool){
+        var finalprice = flight.price
+        if vipCustomers.contains(passangerName) {
+            finalprice -= 50_000
+        }
+        if flight.isInternational == true {
+            finalprice += 15_000
+        }
+        if money >= finalprice {
+            print ("Your ticket to \(flight.destination) for \(passangerName) has been bought succesfully!")
+            return true
+
+        } else {
+            print ("Dear \(passangerName), to buy this flight ticket, you have to add to card \(flight.price - money) dollars!")
+            return false
+        }
+    }
+}
+var terminal = airportTerminal(terminalName: "A", vipCustomers: ["ABYLAIKHAN", "SERGEY"])
+let allFlights = flights
+for currentFlight in allFlights {
+    let success = terminal.bookTicket(flight: currentFlight, passangerName: "ABYLAIKHAN", money: 200_000)
+    if success {
+        print("Красава, летим в \(currentFlight.destination)!")
+    }
+}
